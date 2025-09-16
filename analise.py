@@ -54,7 +54,7 @@ media_por_competencia = df_filtrado.groupby('ALUNO')[competencias].mean().reset_
 media_por_competencia[competencias] = media_por_competencia[competencias].round(2)  # ⬅️ Arredonda C1-C5
 
 # Identifica a competência com menor média por aluno
-media_por_competencia['COMPETÊNCIA_COM_MAIS_DIFICULDADE'] = media_por_competencia[competencias].idxmin(axis=1)
+media_por_competencia['COMPETÊNCIA COM MAIS DIFICULDADE'] = media_por_competencia[competencias].idxmin(axis=1)
 
 # Média geral da nota por aluno
 media_nota = df_filtrado.groupby('ALUNO')['NOTA'].mean().reset_index().rename(columns={'NOTA': 'MÉDIA'})
@@ -85,7 +85,7 @@ st.data_editor(
 
 # Mostrar também as médias por competência
 st.write("### Médias por Competência por Aluno")
-st.dataframe(resultado_final[['ALUNO'] + competencias + ['COMPETÊNCIA_COM_MAIS_DIFICULDADE']], hide_index=True)
+st.dataframe(resultado_final[['ALUNO'] + competencias + ['COMPETÊNCIA COM MAIS DIFICULDADE']], hide_index=True)
 
 # ========================================
 # Análise Geral: Qual competência mais difícil no geral?
@@ -107,3 +107,4 @@ st.dataframe(
     media_competencias_geral.reset_index().rename(columns={'index': 'Competência', 0: 'Média'}),
     hide_index=True
 )
+
